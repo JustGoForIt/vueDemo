@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板语法</title>
+	<script type="text/javascript" src="../vue/vue.js"></script>
+</head>
+<body>
+	<div id="template">
+		<div v-html ='rawHtml'></div>
+	</div>
+</body>
+<script type="text/javascript">
+window.onload = function(){
+	var data ={
+		a : 1,
+		rawHtml: '<strong>罗小怡er</strong>'
+
+	}
+	var vm = new Vue({
+		el:'#template',
+		data:data
+	})
+
+}
+</script>
+</html> 
