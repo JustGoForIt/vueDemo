@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>列表渲染</title>
+	<script type="text/javascript" src="../vue/vue.js"></script>
+</head>
+<body>
+<div id="list">
+	<ul>
+		<li v-for = '(item, index) in items'>{{parentMessage}}:{{index}}:{item.message}</li>
+	</ul>
+
+	<ol>
+		<li v-for= 'item of items'>{{item.message}}</li>
+	</ol>
+	<ul>
+		<li v-for="value in object" >{{value}}</li>
+		<li v-for="(value , key) of object">{{key}}:{{value}}</li>
+		<li v-for="(value, key ,index) of object">{{index}}:{{key}}:{{value}}</li>
+	</ul>
+</div>
+</body>
+<script type="text/javascript">
+window.onload = function(){
+	var vm = new Vue({
+		el:'#list',
+		data:{
+			parentMessage: 'Parent',
+			items:[{message:'Foo'},{message:'Bar'}],//数组
+			object:{
+				fisrtName : ' yi ',
+				lastName : ' luo ',
+				age : 24
+			}
+		}
+	})
+	vm.items = vm.items.filter(function(item){
+		return item.message.match(/Foo/)
+	})
+	//文档上说这两种方法不生效 ，实践发现生效
+	//vm.items[1] = {message : '不生效'} //有疑问
+	//vm.items.length = 5 //有疑问
+
+
+
+
+}
+</script>
+</html> 
