@@ -2,22 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Prop验证</title>
+	<title>全局注册组件</title>
 	<script type="text/javascript" src="../vue/vue.js"></script>
-	<script type="text/javascript" src="./demo2.js"></script>
+	<script type="text/javascript" src="./demo.js"></script>
 </head>
 <body>
 	<div id="example">
-		<my-component :propa = "1fff" ></my-component>
+		<my-component message= "hello wo shi luoyi"></my-component>
 	</div>
 </body>
 <script type="text/javascript">
 window.onload = function(){
 	var example = new Vue({
-		el : '#example',
-		components : {
-			'my-component' : Child
-		}
+		el : '#example'
 	})
 }
 </script>
